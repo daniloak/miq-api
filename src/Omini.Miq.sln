@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8C76983A-FF96-4252-AF7F-C6298D7A1070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omini.Miq.Domain", "Core\Omini.Miq.Domain\Omini.Miq.Domain.csproj", "{3EAE00A6-F6E2-4A0B-8E4F-3AE3E67C3CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omini.Miq.Infrastructure", "Core\Omini.Miq.Infrastructure\Omini.Miq.Infrastructure.csproj", "{A851A641-8410-4529-AD08-E8DBA441E840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omini.Miq.Shared", "Core\Omini.Miq.Shared\Omini.Miq.Shared.csproj", "{19C85A96-04B5-46C2-A5D6-482700B4382E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{EC211534-4918-403F-8DBD-3978DB10030B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omini.Miq.Business", "Business\Omini.Miq.Business\Omini.Miq.Business.csproj", "{4577F775-DA0D-4C18-A16B-88BA68C16AA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{63FE613E-7380-49FA-86B7-F65795C3C309}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omini.Miq.Api", "Api\Omini.Miq.Api\Omini.Miq.Api.csproj", "{1BAE0568-B4A0-4DA0-8C57-EA7B1200A0BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EAE00A6-F6E2-4A0B-8E4F-3AE3E67C3CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAE00A6-F6E2-4A0B-8E4F-3AE3E67C3CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAE00A6-F6E2-4A0B-8E4F-3AE3E67C3CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAE00A6-F6E2-4A0B-8E4F-3AE3E67C3CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A851A641-8410-4529-AD08-E8DBA441E840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A851A641-8410-4529-AD08-E8DBA441E840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A851A641-8410-4529-AD08-E8DBA441E840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A851A641-8410-4529-AD08-E8DBA441E840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C85A96-04B5-46C2-A5D6-482700B4382E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C85A96-04B5-46C2-A5D6-482700B4382E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C85A96-04B5-46C2-A5D6-482700B4382E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C85A96-04B5-46C2-A5D6-482700B4382E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4577F775-DA0D-4C18-A16B-88BA68C16AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4577F775-DA0D-4C18-A16B-88BA68C16AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4577F775-DA0D-4C18-A16B-88BA68C16AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4577F775-DA0D-4C18-A16B-88BA68C16AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAE0568-B4A0-4DA0-8C57-EA7B1200A0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAE0568-B4A0-4DA0-8C57-EA7B1200A0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAE0568-B4A0-4DA0-8C57-EA7B1200A0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAE0568-B4A0-4DA0-8C57-EA7B1200A0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EAE00A6-F6E2-4A0B-8E4F-3AE3E67C3CEA} = {8C76983A-FF96-4252-AF7F-C6298D7A1070}
+		{A851A641-8410-4529-AD08-E8DBA441E840} = {8C76983A-FF96-4252-AF7F-C6298D7A1070}
+		{19C85A96-04B5-46C2-A5D6-482700B4382E} = {8C76983A-FF96-4252-AF7F-C6298D7A1070}
+		{4577F775-DA0D-4C18-A16B-88BA68C16AA0} = {EC211534-4918-403F-8DBD-3978DB10030B}
+		{1BAE0568-B4A0-4DA0-8C57-EA7B1200A0BB} = {63FE613E-7380-49FA-86B7-F65795C3C309}
+	EndGlobalSection
+EndGlobal

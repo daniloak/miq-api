@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  miq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+      - DOTNET_NUGET_SIGNATURE_VERIFICATION=false
