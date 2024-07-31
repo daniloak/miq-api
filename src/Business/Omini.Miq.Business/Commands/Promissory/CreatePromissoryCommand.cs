@@ -9,10 +9,16 @@ namespace Omini.Miq.Business.Commands;
 
 public sealed record CreatePromissoryCommand : ICommand<Promissory>
 {
-    public float TotalAmount { get; set; }
-    public string Status { get; set; }
-    public string ExternalStatus { get; set; }
-    public string Company { get; set; }
+    public List<CreatePromissoryItem> Items { get; set; } = new();
+
+    public class CreatePromissoryItem
+    {
+        public int? LineOrder { get; set; }
+        public string ItemCode { get; set; }
+        public string ItemName { get; set; }
+        public double UnitPrice { get; set; }
+        public double Quantity { get; set; }
+    }
 
     internal sealed class CreatePromissoryCommandHandler : ICommandHandler<CreatePromissoryCommand, Promissory>
     {
@@ -26,16 +32,17 @@ public sealed record CreatePromissoryCommand : ICommand<Promissory>
 
         public async Task<Result<Promissory, ValidationResult>> Handle(CreatePromissoryCommand request, CancellationToken cancellationToken)
         {
-            // var hospital = new Promissory(
-            //     name: new CompanyName(request.LegalName, request.TradeName),
-            //     cnpj: request.Cnpj,
-            //     comments: request.Comments
-            // );
+            var promissory = new Promissory();
 
-            // await _hospitalRepository.Add(hospital, cancellationToken);
+            foreach (var item in request.Items)
+            {
+                promissory.AddItem(item.ItemCode, item.ItemName, item.Quantity, item.UnitPrice);
+            }
+
+            await _promissoryRepository.Create(promissory, cancellationToken);
             await _unitOfWork.Commit(cancellationToken);
 
-            return new Promissory();
+            return promissory;
         }
     }
 }

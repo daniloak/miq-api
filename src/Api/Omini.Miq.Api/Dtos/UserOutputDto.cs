@@ -1,8 +1,9 @@
-using Omini.Miq.Domain.Common;
+using Omini.Miq.Domain.Authentication;
 
-namespace Omini.Miq.Domain.Authentication;
+namespace Omini.Miq.Api.Dtos;
 
-public class MiqUser : IAuditable, ISoftDeletable
+
+public sealed record UserOutputDto
 {
     public int Id { get; set; }
     public string Name { get; set; }

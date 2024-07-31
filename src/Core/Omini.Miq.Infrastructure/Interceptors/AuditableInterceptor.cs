@@ -6,7 +6,7 @@ using Omini.Miq.Shared.Services.Security;
 
 namespace Omini.Miq.Infrastructure.Interceptors;
 
-public sealed class AuditableInterceptor : SaveChangesInterceptor
+internal sealed class AuditableInterceptor : SaveChangesInterceptor
 {
     private readonly IClaimsService _claimsService;
     public AuditableInterceptor(IClaimsService claimsService)

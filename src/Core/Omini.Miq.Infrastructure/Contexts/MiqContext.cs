@@ -5,7 +5,7 @@ using Omini.Miq.Domain.Sales;
 
 namespace Omini.Miq.Infrastructure;
 
-public class MiqContext : DbContext
+internal sealed class MiqContext : DbContext
 {
      public MiqContext(DbContextOptions<MiqContext> options)
         : base(options)
@@ -14,7 +14,7 @@ public class MiqContext : DbContext
         ChangeTracker.DeleteOrphansTiming = CascadeTiming.OnSaveChanges;
     }
 
-    public DbSet<MiqUser> MiqUsers { get; set; }
+    public DbSet<User> Users { get; set; }
     public DbSet<Promissory> Promissories { get; set; }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

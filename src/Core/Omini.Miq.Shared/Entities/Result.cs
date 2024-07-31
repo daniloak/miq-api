@@ -23,8 +23,6 @@ public class Result<TValue, TError>
 
     public bool IsError { get; }
 
-    public bool IsSuccess => !IsError;
-
     public static implicit operator Result<TValue, TError>(TValue value) => new(value);
     public static implicit operator Result<TValue, TError>(TError value) => new(value);
 

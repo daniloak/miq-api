@@ -7,7 +7,7 @@ namespace Omini.Miq.Domain.Repositories;
 
 public interface IRespositoryDocumentEntity<TEntity> : IDisposable where TEntity : DocumentEntity
 {
-    Task Add(TEntity entity, CancellationToken cancellationToken = default);
+    Task Create(TEntity entity, CancellationToken cancellationToken = default);
     IQueryable<TEntity> OrderBy(IQueryable<TEntity> query, string? orderByField = null, SortDirection sortDirection = SortDirection.Asc, string? queryField = null, string? queryValue = null, CancellationToken cancellationToken = default);
     Task<TEntity?> GetByNumber(long number, CancellationToken cancellationToken = default);
     Task<TEntity?> GetById(long id, CancellationToken cancellationToken = default);

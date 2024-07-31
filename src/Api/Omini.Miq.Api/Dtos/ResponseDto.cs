@@ -2,7 +2,7 @@ using Omini.Miq.Shared.Entities;
 
 namespace Omini.Miq.Api.Dtos;
 
-public record ResponseDto
+internal record ResponseDto
 {
     public static ResponseDto ApiSuccess<T>(T body)
     {
@@ -25,12 +25,12 @@ public record ResponseDto
     }
 }
 
-public record ResponseDto<T> : ResponseDto
+internal sealed record ResponseDto<T> : ResponseDto
 {
     public T Data { get; init; }
 }
 
-public record ResponsePagedDto<T> : ResponseDto
+internal sealed record ResponsePagedDto<T> : ResponseDto
 {
     public int CurrentPage { get; init; }
     public int PageSize { get; init; }

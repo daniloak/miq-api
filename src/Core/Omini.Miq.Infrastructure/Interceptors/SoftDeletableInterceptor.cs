@@ -6,7 +6,7 @@ using Omini.Miq.Shared.Services.Security;
 
 namespace Omini.Miq.Infrastructure.Interceptors;
 
-public sealed class SoftDeletableInterceptor : SaveChangesInterceptor
+internal sealed class SoftDeletableInterceptor : SaveChangesInterceptor
 {
     private readonly IClaimsService _claimsService;
     public SoftDeletableInterceptor(IClaimsService claimsService)

@@ -1,31 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
+using Omini.Miq.Api.Dtos;
+using Omini.Miq.Business.Queries;
 
 namespace Omini.Miq.Api.Controllers.V1;
 
 [Route("api/v{version:apiVersion}/[controller]")]
-public class WeatherForecastController : MainController
+public class ItemsController : MainController
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    private readonly ILogger<ItemsController> _logger;
+    public ItemsController(ILogger<ItemsController> logger)
     {
         _logger = logger;
     }
 
-    // [HttpGet(Name = "GetWeatherForecast")]
-    // public IEnumerable<WeatherForecast> Get()
-    // {
-    //     return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-    //     {
-    //         Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-    //         TemperatureC = Random.Shared.Next(-20, 55),
-    //         Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-    //     })
-    //     .ToArray();
-    // }
+    [HttpGet("{code}")]
+    public async Task<IActionResult> GetByCode(string code)
+    {
+        var result = await Mediator.Send(new GetItemByCode { Code = code });
+
+        return ToOk(result, Mapper.Map<ItemOutputDto>);
+    }
 }
