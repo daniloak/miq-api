@@ -9,7 +9,6 @@ public interface IRespositoryDocumentEntity<TEntity> : IDisposable where TEntity
 {
     Task Create(TEntity entity, CancellationToken cancellationToken = default);
     IQueryable<TEntity> OrderBy(IQueryable<TEntity> query, string? orderByField = null, SortDirection sortDirection = SortDirection.Asc, string? queryField = null, string? queryValue = null, CancellationToken cancellationToken = default);
-    Task<TEntity?> GetByNumber(long number, CancellationToken cancellationToken = default);
     Task<TEntity?> GetById(long id, CancellationToken cancellationToken = default);
     Task<PagedResult<TEntity>> GetAll(int currentPage = 1, int pageSize = 100, string? orderByField = null, SortDirection sortDirection = SortDirection.Asc, string? queryField = null, string? queryValue = null, CancellationToken cancellationToken = default);
     void Update(TEntity entity, CancellationToken cancellationToken = default);

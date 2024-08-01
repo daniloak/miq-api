@@ -24,11 +24,6 @@ internal abstract class RepositoryDocumentEntity<TEntity> : IRespositoryDocument
         return await DbSet.AsNoTracking().Where(predicate).ToListAsync(cancellationToken);
     }
 
-    public virtual async Task<TEntity?> GetByNumber(long number, CancellationToken cancellationToken = default)
-    {
-        return await DbSet.AsNoTracking().Where(p => p.Number == number).SingleOrDefaultAsync(cancellationToken);
-    }
-
     public virtual async Task<TEntity?> GetById(long id, CancellationToken cancellationToken = default)
     {
         return await DbSet.Where(p => p.Id == id).SingleOrDefaultAsync(cancellationToken);

@@ -30,12 +30,13 @@ public static class DependecyInjection
                 sp.GetRequiredService<AuditableInterceptor>(),
                 sp.GetRequiredService<SoftDeletableInterceptor>()
             );
-            opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),                 
+                x => x.MigrationsAssembly("Omini.Miq.Migrations"));
         });
 
         //services.AddScoped<IOpmeUserRepository, OpmeUserRepository>();
 
-        services.AddScoped<IUserRepository, IUserRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddScoped<ICompanyRepository, CompanyRepository>();
         services.AddScoped<IItemRepository, ItemRepository>();

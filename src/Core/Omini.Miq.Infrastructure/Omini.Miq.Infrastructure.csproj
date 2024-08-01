@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Omini.Miq.Domain\Omini.Miq.Domain.csproj" />
+    <ProjectReference Include="..\Omini.Miq.Migrations\Omini.Miq.Migrations.csproj" />
   </ItemGroup>
 
 </Project>

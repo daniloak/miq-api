@@ -58,6 +58,8 @@ public class PromissoryItem : DocumentRowEntity
     public double Price { get; private set; }
     public double LineTotal => Quantity * Price;
 
+    private PromissoryItem() { }
+
     public PromissoryItem(long documentId, int lineId, string itemCode, string itemName, double quantity, double price, int? lineOrder = null)
     {
         DocumentId = documentId;

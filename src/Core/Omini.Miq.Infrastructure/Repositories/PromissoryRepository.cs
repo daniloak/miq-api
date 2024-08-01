@@ -22,21 +22,7 @@ internal sealed class PromissoryRepository : RepositoryDocumentEntity<Promissory
         }
 
         return promissory;
-    }
-
-    public override async Task<Promissory?> GetByNumber(long number, CancellationToken cancellationToken = default)
-    {
-        var promissory = await DbSet.Include(p => p.Items).AsNoTracking()
-                          .Where(p => p.Number == number)
-                          .SingleOrDefaultAsync(cancellationToken);
-
-        if (promissory is not null)
-        {
-            //quotation.PayingSource = new PayingSource() { Name = GetPaymentSource(quotation) };
-        }
-
-        return promissory;
-    }   
+    }  
 }
 
 

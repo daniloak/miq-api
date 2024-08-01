@@ -5,10 +5,36 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        image: dkasparian/miqapi:latest
         ports:
             - "8080:8080"
+        networks:
+            - miq
         environment:
             - DOTNET_ENVIRONMENT=Development
             - DOTNET_NUGET_SIGNATURE_VERIFICATION=false
-    miq-db:
+        depends_on:
+            - miqdb
+        #restart: alywas
+        #tty: true
+        #container_name:miq    
+        #entrypoint: dockerize --wait ....
+    miqdb:
+        image: mcr.microsoft.com/mssql/server
+        ports:
+            - "1433:1433"
+        networks:
+            - miq
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=sa
+        volumes:
+            - miqdb:/var/opt/mssql
+
+volumes:
+  miq-db:
+      
+networks:
+    miq:
+        driver: bridge
         

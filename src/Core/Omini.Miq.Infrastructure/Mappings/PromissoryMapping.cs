@@ -12,9 +12,6 @@ internal sealed class PromissoryMapping : DocumentEntityMapping<Promissory>
 
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.Number)
-            .UseIdentityColumn();
-
         builder.Property(x => x.ExternalStatus)
             .HasMaxLength(50);
 
@@ -22,7 +19,7 @@ internal sealed class PromissoryMapping : DocumentEntityMapping<Promissory>
     }
 }
 
-internal class PromissoryItemMapping : IEntityTypeConfiguration<PromissoryItem>
+internal sealed class PromissoryItemMapping : IEntityTypeConfiguration<PromissoryItem>
 {
     public void Configure(EntityTypeBuilder<PromissoryItem> builder)
     {
