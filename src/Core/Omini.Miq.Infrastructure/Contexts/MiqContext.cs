@@ -6,7 +6,7 @@ using Omini.Miq.Infrastructure.Extensions;
 
 namespace Omini.Miq.Infrastructure;
 
-internal sealed class MiqContext : DbContext
+public sealed class MiqContext : DbContext
 {
     public MiqContext(DbContextOptions<MiqContext> options)
        : base(options)

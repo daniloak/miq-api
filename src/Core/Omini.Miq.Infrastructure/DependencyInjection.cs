@@ -30,7 +30,7 @@ public static class DependecyInjection
                 sp.GetRequiredService<AuditableInterceptor>(),
                 sp.GetRequiredService<SoftDeletableInterceptor>()
             );
-            opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),                 
+            opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),   
                 x => x.MigrationsAssembly("Omini.Miq.Migrations"));
         });
 

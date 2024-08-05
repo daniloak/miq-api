@@ -1,0 +1,47 @@
+services:
+    miqapi:
+        build:
+            context: ..
+            dockerfile: ./docker/Dockerfile
+        image: dkasparian/miqapi:latest
+        container_name: miq-api
+        ports:
+            - "8080:8080"
+        depends_on:
+            miqdb:
+                condition: service_healthy
+        networks:
+            - miq
+        environment:
+            - DOTNET_ENVIRONMENT=Development
+            - DOTNET_NUGET_SIGNATURE_VERIFICATION=false
+            - USER_SECRETS_ID=6c5a9b17-9839-487d-80a6-5cd417531a3b
+        volumes:
+            - ~/.microsoft/usersecrets/{$USER_SECRETS_ID}:/root/.microsoft/usersecrets/{$USER_SECRETS_ID}
+    miqdb:
+        build:
+            context: ..
+            dockerfile: ./docker/sql/DockerfileDb
+        container_name: miq-db
+        image: dkasparian/miqdb:latest
+        ports:
+            - "1433:1433"
+        networks:
+            - miq
+        volumes:
+            - miqdb:/var/opt/mssql
+        healthcheck:
+            test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "Password!", "-Q", "select 1", "-C"]
+            interval: 5s
+            timeout: 10s
+            retries: 3
+
+volumes:
+  miqdb:
+    name: miqdb-volume
+      
+networks:
+    miq:
+        name: miq-network
+        driver: bridge
+        

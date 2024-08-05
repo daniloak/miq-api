@@ -12,7 +12,7 @@ using Omini.Miq.Infrastructure;
 namespace Omini.Miq.Migrations.Migrations
 {
     [DbContext(typeof(MiqContext))]
-    [Migration("20240801014439_initdb")]
+    [Migration("20240805001101_initdb")]
     partial class initdb
     {
         /// <inheritdoc />
